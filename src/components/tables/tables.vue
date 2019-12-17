@@ -176,7 +176,7 @@ export default {
             'on-save-edit': (params) => {
               this.value[params.row.initRowIndex][params.column.key] = this.edittingText
               this.$emit('input', this.value)
-              this.$emit('on-save-edit', Object.assign(params, {value: this.edittingText}))
+              this.$emit('on-save-edit', Object.assign(params, { value: this.edittingText }))
               this.edittingCellId = ''
             }
           }
@@ -265,7 +265,7 @@ export default {
     },
     value (val) {
       this.handleTableData()
-      this.handleSearch()
+      if (this.searchable) this.handleSearch()
     }
   },
   mounted () {
